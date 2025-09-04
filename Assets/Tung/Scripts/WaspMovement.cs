@@ -1,4 +1,3 @@
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class BeeOrbit : MonoBehaviour
@@ -44,7 +43,7 @@ public class BeeOrbit : MonoBehaviour
         Vector3 offset = new Vector3(x, y, z);
         transform.position = orbitPoint + offset;
         
-        var lookAngleInRadians = (myAngle + 1) * Mathf.Deg2Rad;
+        var lookAngleInRadians = (myAngle + Mathf.Sign(mySpeed)) * Mathf.Deg2Rad;
         Vector3 lookPosition = orbitPoint + new Vector3(Mathf.Cos(lookAngleInRadians) * myRadius, y, Mathf.Sin(lookAngleInRadians) * myRadius);
         transform.LookAt(lookPosition);
     }
